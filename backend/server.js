@@ -1,10 +1,11 @@
-// /backend/server.js
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
+
+const taskRoutes = require("./routes/taskRoutes");
+const userRoutes = require("./routes/userRoutes");
 const app = express();
 
 // Middlewares
@@ -13,7 +14,8 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-
+app.use("/api/users", userRoutes);
+app.use("/api/tasks", taskRoutes);
 // Sample test route
 app.get("/", (req, res) => {
   res.send("Backend is running ✅");
@@ -28,8 +30,7 @@ mongoose
   .then(() => console.log("MongoDB connected ✅"))
   .catch((err) => console.log("MongoDB connection error:", err));
 //routes
-const userRoutes = require("./routes/userRoutes");
-app.use("/api/users", userRoutes);
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

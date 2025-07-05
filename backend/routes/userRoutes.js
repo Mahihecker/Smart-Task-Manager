@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
+const Task = require("../models/Task");
 
-// @route   POST /api/users/register
+//POST /api/users/register
 router.post("/register", async (req, res) => {
   const { uid, email, name } = req.body;
 
@@ -20,6 +21,8 @@ router.post("/register", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+// GET /api/users/:uid
 router.get("/:uid", async (req, res) => {
   try {
     const user = await User.findOne({ uid: req.params.uid });
@@ -31,3 +34,21 @@ router.get("/:uid", async (req, res) => {
   }
 });
 module.exports = router;
+
+
+// DELETE /api/users/:uid
+router.delete("/:uid", async (req, res) => {
+  try {
+    // Delete user
+    const deletedUser = await User.findOneAndDelete({ uid: req.params.uid });
+    if (!deletedUser) return res.status(404).json({ message: "User not found" });
+
+    // Delete all tasks associated with this user
+    await Task.deleteMany({ userId: req.params.uid });
+
+    res.status(200).json({ message: "User and related tasks deleted successfully" });
+  } catch (err) {
+    console.error("Delete user error:", err.message);
+    res.status(500).json({ message: "Server error" });
+  }
+});
