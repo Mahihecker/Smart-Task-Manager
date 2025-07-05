@@ -8,7 +8,7 @@ router.post("/register", async (req, res) => {
   const { uid, email, name } = req.body;
 
   try {
-    // Check if user already exists
+    // Checking if accountalready exists
     let user = await User.findOne({ uid });
     if (!user) {
       user = new User({ uid, email, name });
@@ -39,11 +39,10 @@ module.exports = router;
 // DELETE /api/users/:uid
 router.delete("/:uid", async (req, res) => {
   try {
-    // Delete user
     const deletedUser = await User.findOneAndDelete({ uid: req.params.uid });
     if (!deletedUser) return res.status(404).json({ message: "User not found" });
 
-    // Delete all tasks associated with this user
+    // Delete all task
     await Task.deleteMany({ userId: req.params.uid });
 
     res.status(200).json({ message: "User and related tasks deleted successfully" });

@@ -1,9 +1,8 @@
 const Task = require("../models/Task");
 console.log("🧠 Loaded Task model:", Task);
 
-// @desc    Create new task
+
 // @route   POST /api/tasks/create
-// @access  Public
 exports.createTask = async (req, res) => {
   try {
     const { userUid, title, description, category, deadline } = req.body;
@@ -26,6 +25,8 @@ exports.createTask = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
+
+// @route    GET /api/tasks/user/:uid
 exports.getTasksByUser = async (req, res) => {
   try {
     const { uid } = req.params;
@@ -36,6 +37,7 @@ exports.getTasksByUser = async (req, res) => {
   }
 };
 
+// @route   PATCH /api/tasks/status/:id
 exports.updateTaskStatus = async (req, res) => {
   try {
     const { id } = req.params;
@@ -61,27 +63,26 @@ exports.deleteTask = async (req, res) => {
 
     console.log("🧹 Deleting task with ID:", id);
 
-    // Extra safeguard: check if ID is valid Mongo ObjectId
     if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-      console.log("❌ Invalid ID format");
+      console.log("Invalid ID format");
       return res.status(400).json({ message: "Invalid task ID" });
     }
 
     const deletedTask = await Task.findByIdAndDelete(id);
 
     if (!deletedTask) {
-      console.log("⚠️ Task not found");
+      console.log("Task not found");
       return res.status(404).json({ message: "Task not found" });
     }
 
-    console.log("✅ Task deleted successfully");
+    console.log("Task deleted successfully");
     res.status(200).json({ message: "Task deleted successfully" });
   } catch (error) {
-    console.error("🔥 Error deleting task:", error);
+    console.error("Error deleting task:", error);
     res.status(500).json({ message: "Server error" });
   }
 };
-
+// @route   GET /api/tasks/task/:id
 exports.getTaskById = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
@@ -91,7 +92,7 @@ exports.getTaskById = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
-
+// @route   PUT /api/tasks/:id
 exports.updateTaskById = async (req, res) => {
   try {
     const { title, description, category, deadline } = req.body;

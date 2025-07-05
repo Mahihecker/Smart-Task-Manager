@@ -6,10 +6,17 @@ const { createTask, getTasksByUser, updateTaskStatus,deleteTask,getTaskById,upda
 router.post("/create", createTask);
 
 // Get all tasks for a user
+// @route   GET /api/tasks/user/:uid
 router.get("/user/:uid", getTasksByUser);
+
+// @route   PATCH /api/tasks/status/:id
 router.patch("/status/:id", updateTaskStatus);
+
+// @route   DELETE /api/tasks/:id
 router.delete("/:id", deleteTask);
-router.get("/task/:id", getTaskById);          // for fetching one task
+// @route   GET /api/tasks/task/:id
+router.get("/task/:id", getTaskById);
+// @route   PUT /api/tasks/:id  
 router.put("/:id", updateTaskById);
 
 module.exports = router;
