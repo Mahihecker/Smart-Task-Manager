@@ -5,7 +5,6 @@ A full-stack task management web application that allows users to create, catego
      ![MongoDB](https://img.shields.io/badge/Database-MongoDB-4EA94B?logo=mongodb&logoColor=white&style=for-the-badge)
      ![Express](https://img.shields.io/badge/Backend-Express.js-000000?logo=express&logoColor=white&style=for-the-badge)
      ![Firebase](https://img.shields.io/badge/Auth-Firebase-FFCA28?logo=firebase&logoColor=white&style=for-the-badge)
-     ![MIT License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
 ## 🛠 Tech Stack
 - **Frontend**: React,React Router, Axios
