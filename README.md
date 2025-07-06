@@ -42,7 +42,7 @@ MONGODB_URI=<your_mongodb_uri>
 #### Backend
 ```bash
 cd backend
-npm start
+npm run dev
 ```
 #### Frontend
 ```bash
