@@ -1,12 +1,17 @@
 # 📝 Smart Task Manager
 A full-stack task management web application that allows users to create, categorize, filter,edit,delete and manage their tasks with deadline reminders, user authentication, and an intuitive dashboard.
 
+![React](https://img.shields.io/badge/Made%20with-React-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+     ![MongoDB](https://img.shields.io/badge/Database-MongoDB-4EA94B?logo=mongodb&logoColor=white&style=for-the-badge)
+     ![Express](https://img.shields.io/badge/Backend-Express.js-000000?logo=express&logoColor=white&style=for-the-badge)
+     ![Firebase](https://img.shields.io/badge/Auth-Firebase-FFCA28?logo=firebase&logoColor=white&style=for-the-badge)
+     ![MIT License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
 ## 🛠 Tech Stack
 - **Frontend**: React,React Router, Axios
 - **Authentication**: Firebase Authentication
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB (via Mongoose)
-- **UI Enhancements**: Framer Motion
 
 ## 🚀 How to Run the Project
 ### 1. Clone the Repository
@@ -67,10 +72,3 @@ Now visit: [http://localhost:3000](http://localhost:3000)
 
 ## 👩‍💻 Author
 Made with 💻 by [@Mahihecker](https://github.com/Mahihecker)
-
-
-![React](https://img.shields.io/badge/Made%20with-React-61DAFB?logo=react&logoColor=white&style=for-the-badge)
-![MongoDB](https://img.shields.io/badge/Database-MongoDB-4EA94B?logo=mongodb&logoColor=white&style=for-the-badge)
-![Express](https://img.shields.io/badge/Backend-Express.js-000000?logo=express&logoColor=white&style=for-the-badge)
-![Firebase](https://img.shields.io/badge/Auth-Firebase-FFCA28?logo=firebase&logoColor=white&style=for-the-badge)
-![MIT License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
